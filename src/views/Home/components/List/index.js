@@ -1,8 +1,8 @@
 import React from "react";
 import gql from "graphql-tag";
-import { withRouter } from "react-router";
-
 import { Query, Mutation } from "react-apollo";
+
+import Button from "../../../../components/Button";
 
 const GET_COMMENTS_QUERY = gql`
   query getCommentsQuery {
@@ -54,7 +54,7 @@ const List = () => (
                     });
                   }}
                 >
-                  <button type="submit">{loading ? "espera" : "borrar"}</button>
+                  <Button type="submit" label={loading ? "espera" : "borrar"} />
                 </form>
               </div>
             )}
@@ -65,4 +65,4 @@ const List = () => (
   </Query>
 );
 
-export default withRouter(List);
+export default List;

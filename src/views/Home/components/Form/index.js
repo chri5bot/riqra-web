@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 
+import Button from "../../../../components/Button";
+import Title from "../../../../components/Title";
+
+import { StyledForm, ButtonContainer } from "./style";
+
 const GET_COMMENTS_QUERY = gql`
   query getCommentsQuery {
     comments {
@@ -30,24 +35,29 @@ function Form() {
       }}
     >
       {(createComment, { loading, error }) => (
-        <form
-          onSubmit={e => {
-            e.preventDefault();
+        <>
+          <Title label="Add Comment" />
+          <StyledForm
+            onSubmit={e => {
+              e.preventDefault();
 
-            if (!content && !content.value) {
-              return;
-            }
+              if (!content && !content.value) {
+                return;
+              }
 
-            createComment({
-              variables: { input: { content: content.value } }
-            });
+              createComment({
+                variables: { input: { content: content.value } }
+              });
 
-            content.value = "";
-          }}
-        >
-          <textarea {...content} />
-          <button type="submit">{loading ? "espera" : "agregar"}</button>
-        </form>
+              content.value = "";
+            }}
+          >
+            <textarea {...content} cols={40} rows={10} />
+            <ButtonContainer>
+              <Button type="submit" label={loading ? "espera" : "agregar"} />
+            </ButtonContainer>
+          </StyledForm>
+        </>
       )}
     </Mutation>
   );

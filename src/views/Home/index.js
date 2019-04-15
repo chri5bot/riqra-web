@@ -3,40 +3,18 @@ import React from "react";
 import Form from "./components/Form";
 import List from "./components/List";
 
-function Home({ history }) {
+import { Container, AddComment, ListComments } from "./style";
+
+function Home() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%"
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "25%"
-        }}
-      >
+    <Container>
+      <AddComment>
         <Form />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "75%"
-        }}
-      >
+      </AddComment>
+      <ListComments>
         <List />
-      </div>
-    </div>
+      </ListComments>
+    </Container>
   );
 }
 
