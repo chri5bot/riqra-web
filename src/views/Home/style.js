@@ -13,7 +13,6 @@ export const AddComment = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 25%;
 `;
 
 export const ListComments = styled.div`
@@ -21,5 +20,5 @@ export const ListComments = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 75%;
+  width: 75%;
 `;

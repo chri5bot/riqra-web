@@ -41,7 +41,7 @@ function Form() {
             onSubmit={e => {
               e.preventDefault();
 
-              if (!content && !content.value) {
+              if (!content || !content.value) {
                 return;
               }
 
@@ -54,7 +54,11 @@ function Form() {
           >
             <textarea {...content} cols={40} rows={10} />
             <ButtonContainer>
-              <Button type="submit" label={loading ? "espera" : "agregar"} />
+              <Button
+                type="submit"
+                disabled={!content || !content.value}
+                label={loading ? "espera" : "agregar"}
+              />
             </ButtonContainer>
           </StyledForm>
         </>
