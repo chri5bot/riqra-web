@@ -52,7 +52,12 @@ function Form() {
               content.value = "";
             }}
           >
-            <textarea {...content} cols={40} rows={10} />
+            <textarea
+              {...content}
+              cols={40}
+              rows={10}
+              placeholder="Ingresa tu comentario"
+            />
             <ButtonContainer>
               <Button
                 type="submit"
